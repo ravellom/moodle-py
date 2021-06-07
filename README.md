@@ -1,1 +1,1 @@
-# Analíticas de aprendizaje de informes CSV de Moodle en Python
+# Analíticas de aprendizaje de informes CSV y JSON de Moodle en Python
