@@ -1,0 +1,7 @@
+.ipynb_checkpoints
+__pycache__/
+*images/
+*.png
+*.doc
+moodle-py-jupyter.ipynb
+test_from_colab.ipynb
