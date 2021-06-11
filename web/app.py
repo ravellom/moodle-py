@@ -5,22 +5,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from my_utils import load_data, descom_fecha
 from make_plots import sns_plot_user1, sns_plot_user2
+from html_strings import html_temp, descriptive_message_temp, intro
 menu_types = (
     "Cursos",
     "Usuarios",
     "Actividades",
 ) 
-st.write("""
-# Análisis de reportes de Moodle
-
-Esta aplicación analiza los ficheros csv descargados de  Administración de sistema/Reportes activos!
-""")
-
 st.sidebar.header('Datos de entrada')
 # get data
 # @st.cache(allow_output_mutation=True) # maybe source of resource limit issue
 # @st.cache
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Suba un fichero CSV", type=["csv"])
 
 # Chequear si se subió un fichero
 if uploaded_file is not None:
@@ -54,12 +49,18 @@ if uploaded_file is not None:
         # Sidebar
         n_users = st.sidebar.slider('Usuarios más activos a mostrar', 1, 50, 20)
         # Main column
+        st.subheader('Análisis de usuarios (Estudiantes)')
         st.subheader('Usuarios más activos por cantidad de accesos')
         st.pyplot(sns_plot_user1(df, n_users))
         st.subheader('Usuarios conectados por días')
+        st.write("Solo si hay más de un día en los registros")
         st.pyplot(sns_plot_user2(df))        
 
+    if menu == "Actividades":
+        st.subheader('En desarrollo')
 else:
+    # Intro de la app
+    st.write(intro)
     st.write("Suba un fichero csv para iniciar.")
 
     
