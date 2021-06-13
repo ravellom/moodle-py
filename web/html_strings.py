@@ -28,6 +28,6 @@ result_temp ="""
 descriptive_message_temp ="""
         <div style="background-color:silver;overflow-x: auto; padding:10px;border-radius:5px;margin:10px;">
             <h3 style="text-align:justify;color:black;padding:10px">Definition</h3>
-            <p>Description bla bla. descriptive_message</p>
+            <p>Description bla bla. descriptive_message TExto dde prueba</p>
         </div>
         """

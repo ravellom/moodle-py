@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from my_utils import load_data, descom_fecha
-from make_plots import sns_plot_user1, sns_plot_user2
+from make_plots import sns_plot_user1, sns_plot_user2, sns_plot_comp
 from html_strings import html_temp, descriptive_message_temp, intro
 menu_types = (
     "Cursos",
@@ -58,6 +58,11 @@ if uploaded_file is not None:
 
     if menu == "Actividades":
         st.subheader('En desarrollo')
+        comp_types = sorted(df.Component.unique())
+        selected_comp = st.sidebar.multiselect('Component', comp_types, comp_types)
+        st.pyplot(sns_plot_comp(df, selected_comp))  
+        
+        #df.loc[df['Contexto del evento'].str.contains(r'^' + cadena)]
 else:
     # Intro de la app
     st.write(intro)
