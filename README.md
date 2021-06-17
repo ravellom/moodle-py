@@ -1,5 +1,9 @@
-# Analíticas de aprendizaje de informes de Moodle en Python y Streamlit para web (Learning analytics from Moodle reports in Python & Streamlit for web)
+# General Moodle Reports Analytics (Analiticas de reportes de Moodle generales)
+## Analíticas de aprendizaje de informes de Moodle en Python, para visualizarlos en web con Streamlit (Learning analytics from Moodle reports in Python, web Vizualised with Streamlit)
 Este proyecto está en desarrollo y abierto a colaboración (This project is in development process and is open to collaboration)
+## Donde descargar los CSV 
+En la página principal del curso en Moodle, vaya al menú que aparece en la rueda dentada y siga la ruta "Aún más/Informes/Registros", luego haga clic en "Conseguir estos registros" y descarguelos como CSV.
+Este fichero .csv lo puede subir en este sitio para su análisis.
 ## Objetivo
 El objetivo de este proyecto es crear algoritmos, aplicaciones Web y otros servicios en Python para analizar informes de Moodle (CSV) tanto generales como de actividades como foros de discusión, de manera que un profesor que imparta un curso en Moodle y desee hacer análisis de su curso, independientemente de si el servidor tenga plugins instalados para esta función, pueda hacerlo utilizando los recursos libres que en este proyecto se brindan.
 Inicialmente está en desarrollo la aplicación de estadísticas generales:
