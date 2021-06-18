@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from my_utils import load_data, descom_fecha
-from make_plots import sns_plot_user1, sns_plot_user2, sns_plot_comp
+from make_plots import sns_plot_course1, sns_plot_user1, sns_plot_user2, sns_plot_comp
 from html_strings import html_temp, descriptive_message_temp, intro
 menu_types = (
     "Cursos",
@@ -36,14 +36,10 @@ if uploaded_file is not None:
     # If is menu General show general stuffs
     if menu == "Cursos":
 
-        n_context = st.sidebar.slider('Cursos más activos a mostrar', 1, 50, 20)
-
+        n_context = st.sidebar.slider('Cursos más activos a mostrar', 5, 25, 10)
         # Main column
         st.subheader('Cursos más activos por cantidad de accesos')
-        fig = sns.catplot(y="Context", kind="count",
-                    palette="ch:.25", edgecolor=".6",
-                    data=df, order=df['Context'].value_counts().iloc[:n_context].index)
-        st.pyplot(fig)
+        st.pyplot(sns_plot_course1(df, n_context))
 
     if menu == "Usuarios":
         # Sidebar
@@ -51,10 +47,15 @@ if uploaded_file is not None:
         # Main column
         st.subheader('Análisis de usuarios (Estudiantes)')
         st.subheader('Usuarios más activos por cantidad de accesos')
-        st.pyplot(sns_plot_user1(df, n_users))
+        #sns.set(rc={'figure.figsize':(4,4)})
+        fig = sns_plot_user1(df, n_users)
+        st.pyplot(fig)
+        #plt.gcf().set_size_inches(4, 4)
+
         st.subheader('Usuarios conectados por días')
         st.write("Solo si hay más de un día en los registros")
-        st.pyplot(sns_plot_user2(df))        
+        st.pyplot(sns_plot_user2(df))
+                
 
     if menu == "Actividades":
         st.subheader('En desarrollo')
