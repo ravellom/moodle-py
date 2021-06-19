@@ -4,9 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-
-
 def sns_plot_course1(df, n_context):
     fig, ax = plt.subplots()
     df2 = df.loc[df['Context'].str.contains(r'^Curso')]
