@@ -30,4 +30,6 @@ def descom_fecha(df):
     df['day']= df['datefull'].dt.day
     # Time
     df['hour']= df['datefull'].dt.hour
+    # Weekday
+    df['wd'] = df['date'].map(lambda x: x.weekday())
     return df

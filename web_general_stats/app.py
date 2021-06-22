@@ -3,11 +3,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import datetime
+from datetime import date, time
 from my_utils import load_data, descom_fecha
-from make_plots import sns_plot_course1, sns_plot_user1, sns_plot_user2, sns_plot_comp
+from make_plots import *
 from html_strings import html_temp, descriptive_message_temp, intro
 menu_types = (
-    "Cursos",
+    "General",
     "Usuarios",
     "Actividades",
 ) 
@@ -34,12 +36,16 @@ if uploaded_file is not None:
         st.write(df)
 
     # If is menu General show general stuffs
-    if menu == "Cursos":
+    if menu == "General":
 
-        n_context = st.sidebar.slider('Cursos más activos a mostrar', 5, 25, 10)
-        # Main column
-        st.subheader('Cursos más activos por cantidad de accesos')
-        st.pyplot(sns_plot_course1(df, n_context))
+        st.subheader('Accesos generales por días')
+        st.write("Solo si hay más de un día en los registros")
+        #date_s = st.date_input("De:", "2021-05-01")
+        #date_f = st.date_input("Hasta:", "2021-05-01")
+        st.pyplot(sns_plot_general1(df, "2021-05-01", "2021-06-30"))
+
+        # Horas x wekday
+        st.pyplot(sns_plot_general2(df, "2021-05-01", "2021-06-30")) 
 
     if menu == "Usuarios":
         # Sidebar
