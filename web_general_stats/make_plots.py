@@ -75,3 +75,17 @@ def sns_plot_comp(df, comps):
                     #data=df_comp)
     plt.gcf().set_size_inches(8, 4)
     return fig
+
+def sns_plot_foros_gen(df):
+    fig, ax = plt.subplots()
+    df2 = df.loc[df['Context'].str.contains(r'^Foro'),['Context','Name']].value_counts().reset_index().rename(columns={'index': 'Context', 0:'N'})
+    fig = sns.catplot(y="Context", kind="count",
+                    palette="ch:.25", edgecolor=".6",
+                    data= df2,
+                    order=df2['Context'].value_counts().index,
+                    height=4)
+    plt.gcf().set_size_inches(6, 6)
+    return fig
+
+
+
