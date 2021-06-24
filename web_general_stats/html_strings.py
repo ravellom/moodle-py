@@ -2,7 +2,7 @@
 avatar1 ="https://www.w3schools.com/howto/img_avatar1.png"
 
 intro = """
-        # General Moodle Reports Analytics v1.0 (Analiticas generales de reportes de Moodle)
+        # General Moodle Reports Analytics v1.0 (Analíticas generales de reportes de Moodle)
         Analíticas de aprendizaje de informes de Moodle en Python, para visualizarlos en web con 
         Streamlit (Learning analytics from Moodle reports in Python, web Vizualised with Streamlit)
         Este proyecto está en desarrollo y abierto a colaboración (This project is in development process 

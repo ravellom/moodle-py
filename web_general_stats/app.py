@@ -40,9 +40,9 @@ if uploaded_file is not None:
 
         st.subheader('Accesos generales por días')
         st.write("Solo si hay más de un día en los registros")
-        #date_s = st.date_input("De:", "2021-05-01")
-        #date_f = st.date_input("Hasta:", "2021-05-01")
-        st.pyplot(sns_plot_general1(df, "2021-05-01", "2021-06-30"))
+        date_s = st.date_input("De:")
+        date_f = st.date_input("Hasta:")
+        st.pyplot(sns_plot_general1(df, pd.to_datetime(date_s), pd.to_datetime(date_f)))
 
         # Horas x wekday
         st.pyplot(sns_plot_general2(df, "2021-05-01", "2021-06-30")) 
@@ -59,6 +59,8 @@ if uploaded_file is not None:
 
         users = sorted(df.Name.unique())
         user = st.selectbox("Seleccionar Participante", users)
+
+        st.pyplot(sns_plot_user3(df[df.Name == user]))
                 
 
     if menu == "Actividades":

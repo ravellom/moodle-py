@@ -1,3 +1,4 @@
+from matplotlib import figure
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -25,8 +26,7 @@ def sns_plot_general2(df, date_s, date_f):
     dfg5 = df[["wd","hour"]].value_counts().reset_index().rename(
             columns={0:'N'})
     dfg6 = dfg5.pivot_table(index='wd', columns='hour', values='N')
-    ax = sns.heatmap(dfg6)
-    #data=dfg2[(dfg2['Date'] > date_s) & (dfg2['Date'] < date_f)])
+    ax = sns.heatmap(dfg6, cmap="YlGnBu")
     return fig
 
 def sns_plot_course1(df, n_context):
@@ -48,7 +48,6 @@ def sns_plot_user1(df, n_users):
                     palette="ch:.25", edgecolor=".6",
                     data=df, order=df['Name'].value_counts().iloc[:n_users].index)
     plt.title("Usuarios más activos")
-    #plt.figure(figsize=(4, 4))
     plt.gcf().set_size_inches(8, 4)
     return fig
 
@@ -63,6 +62,25 @@ def sns_plot_user2(df):
     #plt.figure(figsize=(16, 4))
     plt.gcf().set_size_inches(12, 4)
     return fig
+
+def sns_plot_user3(df):
+    #fig, ax = plt.subplots()
+    df2 = df[df.Component.isin(["Foro", "Tarea"])]
+    df3 = ( df2['Context']
+                .value_counts()
+                .reset_index() 
+                .rename(columns={'index': 'Context', 'Context':'N'}) )
+    #g =  sns.catplot(y="Context", x="N", kind="bar", data=df3)
+    g = sns.catplot(y="Context", kind="count",
+                palette="ch:.25", edgecolor=".6",
+                data= df2,
+                order=df2['Context'].value_counts().index,
+                height=4)
+    plt.title("Participación en las actividades del curso")
+    g.set_axis_labels("Accesos", "Actividades", labelpad=10)
+    g.fig.set_size_inches(4, 4)
+    return g
+
 
 def sns_plot_comp(df, comps):
     fig, ax = plt.subplots()
