@@ -37,7 +37,6 @@ if uploaded_file is not None:
 
     # If is menu General show general stuffs
     if menu == "General":
-
         st.subheader('Accesos generales por días')
         st.write("Solo si hay más de un día en los registros")
         date_s = st.date_input("De:")
@@ -56,15 +55,12 @@ if uploaded_file is not None:
         st.subheader('Cantidad de Participantes:' + str(len(users)))
         st.write('Participantes más activos por cantidad de accesos')
         st.pyplot(sns_plot_user1(df, n_users))
-
         users = sorted(df.Name.unique())
         user = st.selectbox("Seleccionar Participante", users)
+        st.pyplot(sns_plot_user2(df[df.Name == user]))
 
-        st.pyplot(sns_plot_user3(df[df.Name == user]))
-                
-
+               
     if menu == "Actividades":
-
         st.subheader('Recursos y tipos de actividades más vistos')
         comp_types = sorted(df.Component.unique())
         selected_comp = st.sidebar.multiselect('Component', comp_types, comp_types)
