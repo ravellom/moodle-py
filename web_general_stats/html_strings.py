@@ -7,6 +7,10 @@ intro = """
         Streamlit (Learning analytics from Moodle reports in Python, web Vizualised with Streamlit)
         Este proyecto está en desarrollo y abierto a colaboración (This project is in development process 
         and is open to collaboration)
+        Desarrollado por:
+        Raidell Avello Martínez, Profesor Titular, Dpto. de Tecnología Educativa e Informática.
+        Coordinador del Grupo de Investigación sobre Tecnologías EMergentes para el Aprendizaje (GITEM@) https://gitema.ucf.edu.cu/
+        Universidad de Cienfuegos, Cuba.
         ## Donde descargar los CSV 
         En la página principal del curso en Moodle, vaya al menú que aparece en la rueda dentada y 
         siga la ruta "Aún más/Informes/Registros", luego haga clic en "Conseguir estos registros" y 
