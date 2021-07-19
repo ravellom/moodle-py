@@ -7,7 +7,7 @@ import datetime
 from datetime import date, time
 from my_utils import load_data, descom_fecha
 from make_plots import *
-from html_strings import html_temp, descriptive_message_temp, intro
+from html_strings import intro
 menu_types = (
     "General",
     "Participantes",

@@ -11,7 +11,7 @@ from datetime import date, time
 
 def sns_plot_general1(df, date_s, date_f):
     dfg2 = df['date'].value_counts().reset_index().rename(
-            columns={'index': 'Date', 'date':'N'})
+            columns={'index': 'Date', 'date':'N'} )
     dfg2["Date"] = pd.to_datetime(dfg2["Date"]) 
     g = sns.relplot(x="Date", y="N", kind="line", 
                     data=dfg2[(dfg2['Date'] > date_s) & (dfg2['Date'] < date_f)])
