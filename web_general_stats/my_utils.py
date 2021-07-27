@@ -3,7 +3,10 @@ import datetime
 
 
 def load_data(uploaded_file):
-    df = pd.read_csv(uploaded_file)
+  #  df = pd.read_csv(uploaded_file[1])
+    csv_to_read = [pd.read_csv(f) for f in uploaded_file]
+    df = pd.concat(csv_to_read)
+
     df = df.rename(columns={
                     'Hora': 'DT',
                     'Nombre completo del usuario': 'Name',

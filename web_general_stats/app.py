@@ -17,14 +17,15 @@ st.sidebar.header('Datos de entrada')
 # get data
 # @st.cache(allow_output_mutation=True) # maybe source of resource limit issue
 # @st.cache
-uploaded_file = st.sidebar.file_uploader("Suba un fichero CSV", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Suba un fichero CSV", type=["csv"], accept_multiple_files=True)
+st.write(len(uploaded_file))
 
 # Chequear si se subió un fichero
 if uploaded_file is not None:
     # Load data
     df = load_data(uploaded_file)
 
-    # Construir cuerpo de la app para fichero subido
+    # Construct body of app with uploaded file
 
     # General sidebar
     menu = st.sidebar.selectbox("Seleccionar análisis", menu_types)
@@ -44,7 +45,7 @@ if uploaded_file is not None:
         st.pyplot(sns_plot_general1(df, pd.to_datetime(date_s), pd.to_datetime(date_f)))
 
         # Horas x wekday
-        st.pyplot(sns_plot_general2(df, "2021-05-01", "2021-06-30")) 
+        st.pyplot(sns_plot_general2(df, pd.to_datetime(date_s), pd.to_datetime(date_f))) 
 
     if menu == "Participantes":
         users = sorted(df.Name.unique())
