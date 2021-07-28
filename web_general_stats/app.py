@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import datetime
 from datetime import date, time
 from my_utils import load_data, descom_fecha
 from make_plots import *
@@ -18,12 +17,16 @@ st.sidebar.header('Datos de entrada')
 # @st.cache(allow_output_mutation=True) # maybe source of resource limit issue
 # @st.cache
 uploaded_file = st.sidebar.file_uploader("Suba un fichero CSV", type=["csv"], accept_multiple_files=True)
-st.write(len(uploaded_file))
+
 
 # Chequear si se subió un fichero
 if uploaded_file is not None:
     # Load data
     df = load_data(uploaded_file)
+    st.write("Cantidad de ficheros cargados: ", len(uploaded_file))
+    st.write("Rango de fechas en los datos: ", 
+                df["date"].min().strftime("%d/%m/%Y"), " y ", 
+                df["date"].max().strftime("%d/%m/%Y") )
 
     # Construct body of app with uploaded file
 
@@ -40,8 +43,9 @@ if uploaded_file is not None:
     if menu == "General":
         st.subheader('Accesos generales por días')
         st.write("Solo si hay más de un día en los registros")
-        date_s = st.date_input("De:")
-        date_f = st.date_input("Hasta:")
+        date_s = st.date_input("De:", value=df["date"].min())
+        date_f = st.date_input("Hasta", value=df["date"].max())
+        st.write(date_s,date_f)
         st.pyplot(sns_plot_general1(df, pd.to_datetime(date_s), pd.to_datetime(date_f)))
 
         # Horas x wekday
