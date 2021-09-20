@@ -14,7 +14,6 @@ menu_types = (
 ) 
 st.sidebar.header('Datos de entrada')
 # get data
-# @st.cache(allow_output_mutation=True) # maybe source of resource limit issue
 # @st.cache
 uploaded_file = st.sidebar.file_uploader("Suba un fichero CSV", type=["csv"], accept_multiple_files=True)
 
