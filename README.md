@@ -11,18 +11,16 @@ En la página principal del curso en Moodle, vaya al menú que aparece en la rue
 Este fichero .csv lo puede subir en este sitio para su análisis.
 ## Estructura del fichero CSV descargado
 Data columns (total 9 columns):
- #   Column                       Non-Null Count  Dtype 
----  ------                       --------------  ----- 
- 0   Hora                         25948 non-null  object
- 1   Nombre completo del usuario  25948 non-null  object
- 2   Usuario afectado             25948 non-null  object
- 3   Contexto del evento          25948 non-null  object
- 4   Componente                   25948 non-null  object
- 5   Nombre evento                25948 non-null  object
- 6   Descripción                  25948 non-null  object
- 7   Origen                       25948 non-null  object
- 8   Dirección IP                 25948 non-null  object
- 
+ Hora                         
+ Nombre completo del usuario  
+ Usuario afectado            
+ Contexto del evento          
+ Componente                   
+ Nombre evento                
+ Descripción                  
+ Origen                       
+ Dirección IP                 
+
 ## Objetivo
 El objetivo de este proyecto es crear algoritmos, aplicaciones Web y otros servicios en Python para analizar informes de Moodle (CSV) tanto generales como de actividades como foros de discusión, de manera que un profesor que imparta un curso en Moodle y desee hacer análisis de su curso, independientemente de si el servidor tenga plugins instalados para esta función, pueda hacerlo utilizando los recursos libres que en este proyecto se brindan.
 Inicialmente está en desarrollo la aplicación de estadísticas generales:
